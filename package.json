@@ -1,0 +1,22 @@
+{
+  "name": "car5star",
+  "version": "1.0.0",
+  "description": "Car5Star Web Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuyKhanhVu/Car5Star.git"
+  },
+  "author": "DuyKhanhVu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuyKhanhVu/Car5Star/issues"
+  },
+  "homepage": "https://github.com/DuyKhanhVu/Car5Star#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
