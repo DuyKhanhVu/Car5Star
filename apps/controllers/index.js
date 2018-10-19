@@ -8,7 +8,7 @@ router.use("/price-list", require(__dirname + "/price-list"));
 router.use("/about", require(__dirname + "/about"));
 
 router.get("/", function(req, res){
-    res.json({"message":"This is Home Page"});
+    res.render("home");
 });
 
 module.exports = router;

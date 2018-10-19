@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/DuyKhanhVu/Car5Star#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "config": "^2.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mysql": "^2.16.0",
+    "nodejs": "0.0.0"
   }
 }
