@@ -6,9 +6,9 @@
     "mysql":{
         "host":"localhost",
         "port": 3306,
-        "database": "car5star",
-        "user":"",
-        "password":"123456"
+        "database": "car5star_db",
+        "user":"Car5Star",
+        "password":"03091998"
     }
 }
 
