@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function(req, res){
-    res.json({"message":"This is Bog Page"});
+    res.render("blog");
 });
 
 module.exports = router;

@@ -1,0 +1,47 @@
+body {
+    background-color:#393939;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+.table th, .table td { 
+     border-top: none !important;
+     border-left: none !important;
+ }
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #313131 ;
+}
+
+.table-call {
+    min-height: .01%;
+    overflow-x: auto;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
+
+
+.table.table-bordered.vertical,
+.table.table-bordered.vertical td,
+.table.table-bordered.vertical th{
+  border-top: 0px solid white !important;
+  border-bottom: 0px solid white !important;
+  border-right: 0px solid white !important;
+  border-left: 0px solid white !important;
+    }
+
+.head {
+  font-weight: normal;
+  font-size: 16px;
+}
