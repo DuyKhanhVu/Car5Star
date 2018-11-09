@@ -1,12 +1,12 @@
 body {
-    background-color:#393939;
+    background-color:#ffffff;
 }
 
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
     padding: 8px;
-    line-height: 1.42857143;
+    line-height: 1.5;
     vertical-align: middle;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgb(230, 230, 230);
 }
 
 .table th, .table td { 
@@ -15,7 +15,7 @@ body {
  }
 
 .table-striped > tbody > tr:nth-of-type(2n+1) {
-    background-color: #313131 ;
+    background-color: #aaaaaa ;
 }
 
 .table-call {
@@ -27,8 +27,8 @@ body {
 
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
-    background-color: black;
-    color: white;
+    background-color: rgb(200, 200, 200);
+    color: rgb(219, 219, 219);
 }
 
 
