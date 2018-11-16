@@ -7,7 +7,7 @@
         "host":"localhost",
         "port": 3306,
         "database": "car5star_db",
-        "user":"Car5Star",
+        "user":"root",
         "password":"03091998"
     }
 }
