@@ -9,6 +9,8 @@
         "database": "car5star_db",
         "user":"root",
         "password":"03091998"
-    }
+    },
+    "salt": 10,
+    "secret_key": "secretkey"
 }
 

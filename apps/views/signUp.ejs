@@ -19,25 +19,35 @@
                     <h3>Sign Up</h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="signupform" role="form" method="POST" action="/signUp">
+                        <div id="signupalert" class="alert alert-danger"
+                            <% if (!data || !data.error){%>
+                                style = "display: none;"
+                            <%}%>
+                        >
+                            <p>Error:</p>
+                            <% if (data && data.error){%>
+                            <span> <%=data.error%> </span>
+                            <%}%>
+                        </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input name="username" type="text" class="form-control" placeholder="Username">
                             
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Password">                            
+                            <input name = "password" type="password" class="form-control" placeholder="Password">                            
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Confirm Password">                            
+                            <input name="confirmpassword" type="password" class="form-control" placeholder="Confirm Password">                            
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Submit" class="btn float-right login_btn">
