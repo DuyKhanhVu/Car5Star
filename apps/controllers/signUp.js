@@ -25,7 +25,7 @@ router.post("/", function(req, res){
     if (!result){
         res.render("signUp", {data:{error:"Could not insert user data to db"}});
     }else{
-        res.render("login");
+        res.redirect("login");
     }
 });
 module.exports = router;
