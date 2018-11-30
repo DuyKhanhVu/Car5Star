@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog manager</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/admin">Car5Star</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/admin">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Quản lý xe <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    <li><a href="add-car">Thêm xe</a></li>
+                    <li><a href="delete-car">Xoá xe</a></li>
+                    <li><a href="update-car">Chỉnh sửa thông tin xe</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="/admin/blog-manager">Quản lý blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row" style="margin-bottom : 5px;">
+            <div class="col-md-12">
+                <a href="/admin/blog-manager/addnew" class="btn btn-success pull-left">Add new post</a>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Blog Post
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>                                
+                                <th>Title</th>                                                          
+                                <th>Content</th>    
+                                <th>Author</th>
+                                <th>Status</th>                                      
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%=data.id%>%></td>
+                                <td><%=data.title%></td>
+                                <td><%=data.content%></td>
+                                <td><%=data.author%></td>
+                                <td style="text-align: center"> 
+                                    <button class="btn glyphicon glyphicon-trash btn-danger"></button>
+                                    <button class="btn glyphicon glyphicon-pencil btn-primary"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    </div>
+    <script src="static/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>
