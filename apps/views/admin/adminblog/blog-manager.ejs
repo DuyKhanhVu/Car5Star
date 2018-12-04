@@ -15,13 +15,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/admin">Home</a></li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Quản lý xe <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                    <li><a href="add-car">Thêm xe</a></li>
-                    <li><a href="delete-car">Xoá xe</a></li>
-                    <li><a href="update-car">Chỉnh sửa thông tin xe</a></li>
-                    </ul>
-                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Quản lý xe <span class="caret"></span></a></li>
                 <li class="active"><a href="/admin/blog-manager">Quản lý blog</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -54,16 +48,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><%=data.id%>%></td>
-                                <td><%=data.title%></td>
-                                <td><%=data.content%></td>
-                                <td><%=data.author%></td>
-                                <td style="text-align: center"> 
-                                    <button class="btn glyphicon glyphicon-trash btn-danger"></button>
-                                    <button class="btn glyphicon glyphicon-pencil btn-primary"></button>
-                                </td>
-                            </tr>
+                            <%if (data && data.posts){%>
+                                <%for (var i = 0; i < data.posts.length; i++){%>
+                                    <tr>
+                                        <td><%=data.posts[i].id%>%></td>
+                                        <td><%=data.posts[i].title%></td>
+                                        <td><%=data.posts[i].content%></td>
+                                        <td><%=data.posts[i].author%></td>
+                                        <td style="text-align: center"> 
+                                            <a class="btn glyphicon glyphicon-trash btn-danger"></a>
+                                            <a href="/admin/blog-manager/edit/<%=data.posts[i].id%>" 
+                                                class="btn glyphicon glyphicon-pencil btn-primary"></a>
+                                        </td>
+                                    </tr>
+                                <%}%>
+                            <%}%>
+                            
                         </tbody>
                     </table>
                 </div>

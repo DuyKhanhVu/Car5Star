@@ -8,7 +8,16 @@ router.get("/", function(req, res){
 });
 
 router.get("/blog-manager", function(req, res){
-    res.render("admin/adminblog/blog-manager", {data:{}});
+    var data = blog_md.getAllPost();
+    data.then(function(posts){
+        var dataRender={
+            posts: posts,
+            error: false,
+        };
+        res.render("admin/adminblog/blog-manager", {data: dataRender});
+    }).catch(function(err){
+        res.render("admin/adminblog/blog-manager", {data:{error: true}});
+    });
 });
 
 router.get("/blog-manager/addnew", function(req, res){
@@ -35,4 +44,41 @@ router.post("/blog-manager/addnew", function(req, res){
         res.redirect("/admin/blog-manager");
     }
 });
+
+router.get("/blog-manager/edit/:id", function(req, res){
+    var params = req.params;
+    var id = params.id;
+    var data = blog_md.getPostById(id);
+
+    if (data){
+        data.then(function(posts){
+            var dataRender = {
+                post: posts[0],
+                error: false
+            };
+            res.render("admin/adminblog/edit",{data: dataRender});
+        }).catch(function(error){
+            res.render("admin/adminblog/edit",{error: true});
+        })
+    }else{
+        res.render("admin/adminblog/edit",{data:data});
+    }
+});
+
+router.put("/blog-manager/edit", function(req, res){
+    var params = req.body;
+    console.log("admin")
+    data = blog_md.updatePost(params);
+
+    if (!data){
+        res.json({status_code: 500});
+    }else{
+        data.then(function(result){
+            res.json({status_code: 200});
+        }).catch(function(err){
+            res.json({status_code: 500});
+        });
+    }
+});
+
 module.exports = router;
