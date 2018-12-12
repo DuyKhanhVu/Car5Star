@@ -6,4 +6,8 @@ router.get("/", function(req, res){
     res.render("blog");
 });
 
+router.get("/read-post/:id", function(req, res){
+    res.render("read-post");
+})
+
 module.exports = router;
