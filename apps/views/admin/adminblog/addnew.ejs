@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add new post</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/admin">Car5Star</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/admin">Home</a></li>
+                <li><ahref="#">Quản lý xe</a></li>
+                <li class="active"><a href="/admin/blog-manager">Quản lý blog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add new post
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+            <form role="form" method="POST" action="/admin/blog-manager/addnew">
+                <% if (data && data.error){%>
+                    <div id ="addnew-alert" class="alert alert-danger">
+                        <%=data.error%>
+                    </div>
+                <%}%>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input name="author" class="form-control">                
+                </div>
+
+                <div class="form-group">
+                    <label>Tiltle</label>
+                    <input name="title" class="form-control">
+                </div>
+            
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea name="content" class="form-control" rows="3"></textarea>
+                </div>
+                                    
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger">Reset Form</button>
+            </form>
+        </div>
+    </div>
+    <script src="static/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+</body>
+</html>
