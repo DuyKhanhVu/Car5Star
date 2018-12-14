@@ -13,4 +13,8 @@ router.get("/", function(req, res){
     res.render("home");
 });
 
+router.get("/chat", function(req,res){
+    res.render("chat");
+})
+
 module.exports = router;
