@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/chat.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/chat.css" rel="stylesheet">
 
     <title>Chat</title>
 </head>
@@ -14,21 +14,18 @@
 <body>
     <%include layout/header%>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-
-                    </div>
-                    <div class="panel-footer">
-                        <div class="input-group">
-                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                            <span class="input-group-btn">
-                                <button class="btn btn-warning btn-sm" id="btn-chat"> Send </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+        <div class="panel-body">
+            <ul id="conversation" class="chat">
+                
+            </ul>
+        </div>
+        <div class="panel-footer">
+            <div class="input-group">
+                <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                <span class="input-group-btn">
+                    <button class="btn btn-warning" id="btn_send">
+                        Send</button>
+                </span>
             </div>
         </div>
     </div>
@@ -40,10 +37,26 @@
     <script type="text/javascript">
         //var socket = io.connect("http://125.234.14.225:8088");
         var socket = io.connect("http://localhost:3000/");
-        socket.on("connect", function(){
+        socket.on("connect", function () {
             console.log("connecting server");
-        })
+        });
+
+        socket.on("update_message", function (data) {
+            $("#conversation").append("<li> <b>" + data.sender + " " + "</b>" + data.message + "</li>");
+        });
+
+        $("#btn_send").click(function (e) {
+            var message = $("#message").val();
+            $("#message").val("");
+
+            if (message.trim().length != 0) {
+                socket.emit("send_message", message);
+            }
+        });
+
+        $("form").submit(function () {
+            return false;
+        });
     </script>
 </body>
-
 </html>
