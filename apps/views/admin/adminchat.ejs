@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Chat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/admin">Car5Star</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/admin">Home</a></li>
+                <li><a href="#">Quản lý xe </a></li>
+                <li><a href="/admin/blog-manager">Quản lý blog</a></li>
+                <li class="active"><a href="/admin/adminchat">Chat</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="container">
+            <div class="panel-body">
+                <ul id="conversation" class="chat" style="list-style: none; height: 450px; overflow-y: scroll; background-color: #F5F5F5">
+
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning" id="btn_send">
+                            Send</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="/static/js/popper.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <script type="text/javascript">
+            //var socket = io.connect("http://125.234.14.225:8088");
+            var socket = io.connect("http://localhost:3000/");
+            socket.on("connect", function () {
+                console.log("admin connecting server");
+            });
+
+            socket.on("update_message", function (data) {
+                $("#conversation").append("<li> <b>" + data.sender + " " + "</b>" + data.message + "</li>");
+            });
+
+            $("#btn_send").click(function (e) {
+                var message = $("#message").val();
+                $("#message").val("");
+
+                if (message.trim().length != 0) {
+                    socket.emit("admin_send_message", message);
+                }
+            });
+
+            $("form").submit(function () {
+                return false;
+            });
+        </script>
+    </div>
+    <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+
+</html>

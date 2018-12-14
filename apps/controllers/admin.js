@@ -7,6 +7,10 @@ router.get("/", function (req, res) {
     res.render("admin/admin", { data: {} });
 });
 
+router.get("/adminchat", function (req, res){
+    res.render("admin/adminchat");
+})
+
 router.get("/blog-manager", function (req, res) {
     var data = blog_md.getAllPost();
     data.then(function (posts) {

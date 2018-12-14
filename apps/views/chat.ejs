@@ -38,7 +38,7 @@
         //var socket = io.connect("http://125.234.14.225:8088");
         var socket = io.connect("http://localhost:3000/");
         socket.on("connect", function () {
-            console.log("connecting server");
+            console.log("user connecting server");
         });
 
         socket.on("update_message", function (data) {
@@ -46,11 +46,12 @@
         });
 
         $("#btn_send").click(function (e) {
-            var message = $("#message").val();
+            var  message = $("#message").val();
+
             $("#message").val("");
 
             if (message.trim().length != 0) {
-                socket.emit("send_message", message);
+                socket.emit("client_send_message", message);
             }
         });
 
