@@ -5,7 +5,6 @@ module.exports = function(io){
         //Listen send message
         socket.on("client_send_message", function(message){
             // Notify to myself
-
             var data = {
                 sender: "You",
                 message: message
@@ -20,7 +19,6 @@ module.exports = function(io){
 
         socket.on("admin_send_message", function(message){
             // Notify to myself
-
             var data = {
                 sender: "You",
                 message: message

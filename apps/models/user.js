@@ -37,6 +37,6 @@ function getUserByUsername(username){
 }
 
 module.exports = {
-    addUser : addUser,
+     addUser : addUser,
     getUserByUsername : getUserByUsername
 }

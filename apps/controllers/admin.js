@@ -2,6 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 var blog_md = require("../models/blogAdmin");
+var feedback_md = require("../models/feedback")
 
 router.get("/", function (req, res) {
     res.render("admin/admin", { data: {} });
@@ -84,5 +85,18 @@ router.put("/blog-manager/edit", function (req, res) {
         });
     }
 });
+
+router.get("/adminfeedback", function (req, res){
+    var data = feedback_md.getAllFeedback();
+    data.then(function (feedbacks) {
+        var dataRender = {
+            feedbacks: feedbacks,
+            error: false,
+        };
+        res.render("admin/adminfeedback", { data: dataRender });
+    }).catch(function (err) {
+        res.render("admin/adminfeedback", { data: { error: true } });
+    });
+})
 
 module.exports = router;

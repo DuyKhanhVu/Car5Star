@@ -9,8 +9,9 @@ router.use("/price-list", require(__dirname + "/price-list"));
 router.use("/about", require(__dirname + "/about"));
 router.use("/login", require(__dirname + "/login"));
 router.use("/signUp", require(__dirname + "/signUp"));
+router.use("/feedback", require(__dirname + "/feedback"));
 router.get("/", function(req, res){
-    res.render("home");
+    res.render("home", {data:{}});
 });
 
 router.get("/chat", function(req,res){

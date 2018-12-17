@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="/static/css/chat.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +32,7 @@
     <div class="container">
         <div class="container">
             <div class="panel-body">
-                <ul id="conversation" class="chat" style="list-style: none; height: 450px; overflow-y: scroll; background-color: #F5F5F5">
+                <ul id="conversation" class="chat">
 
                 </ul>
             </div>
@@ -49,8 +50,8 @@
         <script src="/static/js/popper.min.js"></script>
         <script src="/static/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        
         <script type="text/javascript">
-            //var socket = io.connect("http://125.234.14.225:8088");
             var socket = io.connect("http://localhost:3000/");
             socket.on("connect", function () {
                 console.log("admin connecting server");
