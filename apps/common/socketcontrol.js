@@ -15,6 +15,7 @@ module.exports = function(io){
                 message: message
             };
             socket.broadcast.emit("update_message", data);
+            console.log("client send message " + message);
         });
 
         socket.on("admin_send_message", function(message){
