@@ -23,17 +23,39 @@
                             trọng cho khách hàng dễ dàng lực chọn.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Gender</label>
-                        <div class="col-sm-9">
-                            <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </div>
+                <form class="form-group row">
+                    <label class="col-form-label">Loại xe</label>
+                    <div class="col-sm-3">
+                        <select class="form-control">
+                            <option>4 chỗ</option>
+                            <option>7 chỗ</option>
+                            <option>16 chỗ</option>
+                        </select>
                     </div>
-                </div>
+
+                    <label class="col-form-label">Hãng</label>
+                    <div class="col-sm-3">
+                        <select class="form-control">
+                            <option>Toyota</option>
+                            <option>Huyndai</option>
+                            <option>Honda</option>
+                            <option>Mazda</option>
+                            <option>Ford</option>
+                            <option>Isuzu</option>
+                        </select>
+                    </div>
+
+                    <label class="col-form-label">Giá thuê</label>
+                    <div class="col-sm-3">
+                        <select class="form-control">
+                            <option>3 triệu - 5 triệu</option>
+                            <option>5 triệu - 10 triệu</option>
+                            <option>> 10 triệu</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" value="Tìm xe" class="btn float-right">
+                </form>
                 <div class="row text-center">
                     <%for (var i = 1; i <= 8; i++){%>
                     <div class="col-md-3 box border py-4">

@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Admin Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+
 </head>
+
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/admin">Car5Star</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/admin">Home</a></li>
-                <li><a href="#">Quản lý xe </a></li>
-                <li><a href="/admin/blog-manager">Quản lý blog</a></li>
-                <li><a href="/admin/adminchat">Chat</a></li>
-                <li><a href="/admin/feedback">Feedback</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
-            </ul>
-        </div>
-    </nav>
-    
+    <%include layoutadmin/header%>
+
     <div class="container">
-        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quản lý đơn đặt xe
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Tên khách hàng</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Mã xe</th>
+                                <th>Thời gian thuê</th>
+                                <th>Ghi chú</th>
+                                <th>Thời gian đăng kí</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <!-- <tbody>
+                            <%if (data && data.posts){%>
+                            <%for (var i = 0; i < data.posts.length; i++){%>
+                            <tr>
+                                <td>
+                                    <%=data.posts[i].id%>%></td>
+                                <td>
+                                    <%=data.posts[i].title%>
+                                </td>
+                                <td>
+                                    <%=data.posts[i].content%>
+                                </td>
+                                <td>
+                                    <%=data.posts[i].author%>
+                                </td>
+                                <td style="text-align: center">
+                                    <button class="btn glyphicon glyphicon-trash btn-danger post_delete" post_id="<%=data.posts[i].id%>"></button>
+                                    <a href="/admin/blog-manager/edit/<%=data.posts[i].id%>" class="btn glyphicon glyphicon-pencil btn-primary"></a>
+                                </td>
+                            </tr>
+                            <%}%>
+                            <%}%>
+
+                        </tbody> -->
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
     </div>
     <script src="static/js/jquery-3.3.1.slim.min.js"></script>
     <script src="static/js/popper.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
 </body>
+
 </html>
