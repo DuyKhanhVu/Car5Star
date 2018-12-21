@@ -26,39 +26,58 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Tên khách hàng</th>
-                                <th>Email</th>
                                 <th>Số điện thoại</th>
+                                <th>Email</th>
                                 <th>Mã xe</th>
                                 <th>Thời gian thuê</th>
+                                <th>Thời gian trả</th>
                                 <th>Ghi chú</th>
                                 <th>Thời gian đăng kí</th>
                                 <th>Trạng thái</th>
                             </tr>
                         </thead>
-                        <!-- <tbody>
-                            <%if (data && data.posts){%>
-                            <%for (var i = 0; i < data.posts.length; i++){%>
+                        <tbody>
+                            <%if (data && data.orders){%>
+                            <%for (var i = 0; i < data.orders.length; i++){%>
                             <tr>
                                 <td>
-                                    <%=data.posts[i].id%>%></td>
+                                    <%=data.orders[i].id%></td>
                                 <td>
-                                    <%=data.posts[i].title%>
+                                    <%=data.orders[i].name%>
                                 </td>
                                 <td>
-                                    <%=data.posts[i].content%>
+                                    <%=data.orders[i].phone%>
                                 </td>
                                 <td>
-                                    <%=data.posts[i].author%>
+                                    <%=data.orders[i].email%>
                                 </td>
-                                <td style="text-align: center">
-                                    <button class="btn glyphicon glyphicon-trash btn-danger post_delete" post_id="<%=data.posts[i].id%>"></button>
-                                    <a href="/admin/blog-manager/edit/<%=data.posts[i].id%>" class="btn glyphicon glyphicon-pencil btn-primary"></a>
+                                <td>
+                                    <%=data.orders[i].idcar%>
+                                </td>
+                                <td>
+                                    <%=data.orders[i].from%>
+                                </td>
+                                <td>
+                                    <%=data.orders[i].to%>
+                                </td>
+                                <td>
+                                    <%=data.orders[i].note%>
+                                </td>
+                                <td>
+                                    <%=data.orders[i].create_at%>
+                                </td>
+                                <td>
+                                    <%if (!data.orders[i].status){%>
+                                        <a class="btn btn-danger">Wait</a>
+                                    <%}else{%>
+                                        <a class="btn btn-success">Done</a>
+                                    <%}%>
                                 </td>
                             </tr>
                             <%}%>
                             <%}%>
 
-                        </tbody> -->
+                        </tbody>
                     </table>
                 </div>
                 <!-- /.table-responsive -->
