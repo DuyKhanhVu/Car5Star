@@ -3,9 +3,19 @@ var express = require("express");
 var router = express.Router();
 var blog_md = require("../models/blogAdmin");
 var feedback_md = require("../models/feedback")
+var car_md = require("../models/car")
 
 router.get("/", function (req, res) {
-    res.render("admin/admin", { data: {} });
+    var data = car_md.getAllOrders();
+    data.then(function (orders) {
+        var dataRender = {
+            orders: orders,
+            error: false,
+        };
+        res.render("admin/admin", { data: dataRender });
+    }).catch(function (err) {
+        res.render("admin/admin", { data: { error: true } });
+    });
 });
 
 router.get("/adminchat", function (req, res){
@@ -97,6 +107,6 @@ router.get("/adminfeedback", function (req, res){
     }).catch(function (err) {
         res.render("admin/adminfeedback", { data: { error: true } });
     });
-})
+});
 
 module.exports = router;
