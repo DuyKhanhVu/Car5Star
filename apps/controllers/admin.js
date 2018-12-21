@@ -8,7 +8,7 @@ router.get("/", function (req, res) {
     res.render("admin/admin", { data: {} });
 });
 
-router.get("/adminchat", function (req, res){
+router.get("/adminchat", function (req, res) {
     res.render("admin/adminchat");
 });
 
@@ -86,7 +86,24 @@ router.put("/blog-manager/edit", function (req, res) {
     }
 });
 
-router.get("/adminfeedback", function (req, res){
+router.get("/car-manager", function (req, res) {
+    var data = blog_md.getAllPost();
+    data.then(function (cars) {
+        var dataRender = {
+            cars: cars,
+            error: false,
+        };
+        res.render("admin/admincar/car-manager", { data: dataRender });
+    }).catch(function (err) {
+        res.render("admin/admincar/car-manager", { data: { error: true } });
+    });
+});
+
+router.get("/car-manager/add-car", function (req, res) {
+    res.render("admin/admincar/add-car", { data: {} });
+});
+
+router.get("/adminfeedback", function (req, res) {
     var data = feedback_md.getAllFeedback();
     data.then(function (feedbacks) {
         var dataRender = {

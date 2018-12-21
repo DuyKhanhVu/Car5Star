@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add new car</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <%include ../layoutadmin/header.ejs %>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add new car
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form role="form" method="POST" action="/admin/blog-manager/addnew">
+                    <% if (data && data.error){%>
+                    <div id="addnew-alert" class="alert alert-danger">
+                        <%=data.error%>
+                    </div>
+                    <%}%>
+                    <div class="form-group">
+                        <label>Tên xe</label>
+                        <input name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Hãng</label>
+                        <input name="brand" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Màu xe</label>
+                        <input name="exterior_color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Số ghế</label>
+                        <input name="seating" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Giá thuê</label>
+                        <input name="price" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group-btn">
+                            <div class="fileUpload btn btn-primary fake-shadow">
+                                <span><i class="glyphicon glyphicon-upload"></i>Tải ảnh lên<nav></nav></span>
+                                <input id="logo-id" name="logo" type="file" class="attachment_upload">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="reset" class="btn btn-danger">Reset Form</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var brand = document.getElementById('logo-id');
+                brand.className = 'attachment_upload';
+                brand.onchange = function () {
+                    document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+                };
+
+                // Source: http://stackoverflow.com/a/4459419/6396981
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('.img-preview').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                $("#logo-id").change(function () {
+                    readURL(this);
+                });
+            });
+        </script>
+</body>
+
+</html>
