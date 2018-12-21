@@ -48,7 +48,7 @@ function getPostById(id){
 }
 
 function updatePost(params){
-    console.log("updatePost")
+    console.log("updatePost");
     if (params){
         var defer = q.defer();
         var query = conn.query('UPDATE blog SET title = ?, content = ?, author = ? WHERE id = ?',
@@ -66,9 +66,23 @@ function updatePost(params){
     return false;
 }
 
+function deletePost(id){
+    
+    var defer = q.defer();
+    var query = conn.query('DELETE FROM blog WHERE ?',{id: id} , function(err, result){
+        if (err){
+            console.log(err);
+            defer.reject(err);
+        }else{
+            defer.resolve(result);
+        }
+    });
+    return defer.promise;
+}
 module.exports = {
     getAllPost: getAllPost,
     addNewPost: addNewPost,
     getPostById: getPostById,
-    updatePost: updatePost
-}
+    updatePost: updatePost,
+    deletePost:deletePost
+};

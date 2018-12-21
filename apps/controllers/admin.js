@@ -2,7 +2,7 @@ var express = require("express");
 
 var router = express.Router();
 var blog_md = require("../models/blogAdmin");
-var feedback_md = require("../models/feedback")
+var feedback_md = require("../models/feedback");
 
 router.get("/", function (req, res) {
     res.render("admin/admin", { data: {} });
@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
 
 router.get("/adminchat", function (req, res){
     res.render("admin/adminchat");
-})
+});
 
 router.get("/blog-manager", function (req, res) {
     var data = blog_md.getAllPost();
@@ -64,7 +64,7 @@ router.get("/blog-manager/edit/:id", function (req, res) {
             res.render("admin/adminblog/edit", { data: dataRender });
         }).catch(function (error) {
             res.render("admin/adminblog/edit", { error: true });
-        })
+        });
     } else {
         res.render("admin/adminblog/edit", { data: data });
     }
@@ -72,7 +72,7 @@ router.get("/blog-manager/edit/:id", function (req, res) {
 
 router.put("/blog-manager/edit", function (req, res) {
     var params = req.body;
-    console.log("admin")
+    console.log("admin");
     data = blog_md.updatePost(params);
 
     if (!data) {
@@ -97,6 +97,19 @@ router.get("/adminfeedback", function (req, res){
     }).catch(function (err) {
         res.render("admin/adminfeedback", { data: { error: true } });
     });
-})
+});
+router.delete("/blog-manager/delete",function(req,res){
+    var id=req.body.id;
+    var data=blog_md.deletePost(id);
+    if (!data) {
+        res.json({ status_code: 500 });
+    } else {
+        data.then(function (result) {
+            res.json({ status_code: 200 });
+        }).catch(function (err) {
+            res.json({ status_code: 500 });
+        });
+    }
+});
 
 module.exports = router;

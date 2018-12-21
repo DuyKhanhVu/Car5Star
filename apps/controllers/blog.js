@@ -8,6 +8,5 @@ router.get("/", function(req, res){
 
 router.get("/read-post/:id", function(req, res){
     res.render("blog/read-post");
-})
-
+});
 module.exports = router;
