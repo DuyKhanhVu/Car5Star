@@ -57,17 +57,17 @@
                     <input type="submit" value="Tìm xe" class="btn float-right">
                 </form>
                 <div class="row text-center">
-                    <%for (var i = 1; i <= 8; i++){%>
+                    <%for (var i = 0; i < data.cars.length; i++){%>
                     <div class="col-md-3 box border py-4">
                         <div class="box-carimage">
                             <img src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg"
                                 alt="">
                         </div>
                         <div class="box-cartitle">
-                            <h4> Mahindra XUV500 2018</h4>
+                            <h4><%=data.cars[i].name%></h4>
                         </div>
                         <div class="box-carprice">
-                            <h6><i class="fa fa-inr"></i>3.000.000/day</h6>
+                            <h6><i class="fa fa-inr"></i><%=data.cars[i].price%>/day</h6>
                         </div>
                         <a href="/view-car/review-car/<%=i%>" type="button" class="btn btn-outline-danger">Check Price</a>
                     </div>

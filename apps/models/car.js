@@ -33,7 +33,38 @@ function getAllOrders(){
     return defer.promise;
 }
 
+function addNewCar(car){
+    if (car){
+        var defer = q.defer();
+        var query = conn.query('INSERT INTO cars SET ?', car, function(err, result){
+            if(err){
+                console.log(err);
+                defer.reject(err);
+            }else{
+                defer.resolve(result);
+            }
+        });
+        return defer.promise;
+    }
+    return false;
+}
+
+function getAllCars(){
+    var defer = q.defer();
+    var query = conn.query('SELECT * FROM cars', function(err, cars){
+        if (err){
+            console.log(err);
+            defer.reject(err);
+        }else{
+            defer.resolve(cars);
+        }
+    });
+    return defer.promise;
+}
+
 module.exports = {
     addOrder : addOrder,
-    getAllOrders : getAllOrders
+    getAllOrders : getAllOrders,
+    addNewCar: addNewCar,
+    getAllCars : getAllCars,
 }

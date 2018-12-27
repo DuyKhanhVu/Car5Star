@@ -1,11 +1,38 @@
 var express = require("express");
+var multer = require('multer');
+var path = require('path');
 
 var router = express.Router();
 var blog_md = require("../models/blogAdmin");
 var feedback_md = require("../models/feedback");
+var car_md = require("../models/car");
+
+//Set Storage Engine
+const storage = multer.diskStorage({
+    destination: './public/upload/',
+    filename: function(req, file, cb){
+        cb(null,file.fieldname + '-' + Date.now() + 
+        path.extname(file.originalname));
+    }
+})
+
+//Init Upload
+const upload = multer({
+    storage: storage
+}).single('myImage');
+
 
 router.get("/", function (req, res) {
-    res.render("admin/admin", { data: {} });
+    var data = car_md.getAllOrders();
+    data.then(function (orders) {
+        var dataRender = {
+            orders: orders,
+            error: false,
+        };
+        res.render("admin/admin", { data: dataRender });
+    }).catch(function (err) {
+        res.render("admin/admin", { data: { error: true } });
+    });
 });
 
 router.get("/adminchat", function (req, res) {
@@ -87,7 +114,7 @@ router.put("/blog-manager/edit", function (req, res) {
 });
 
 router.get("/car-manager", function (req, res) {
-    var data = blog_md.getAllPost();
+    var data = car_md.getAllCars();
     data.then(function (cars) {
         var dataRender = {
             cars: cars,
@@ -103,6 +130,27 @@ router.get("/car-manager/add-car", function (req, res) {
     res.render("admin/admincar/add-car", { data: {} });
 });
 
+router.post("/car-manager/add-car", function (req, res) {
+    upload(req, res, (err) => {
+        var params = req.body;
+        car = {
+            name: params.name,
+            imageUrl: 'upload/'+ req.file.filename,
+            brand: params.brand,
+            exterior_color: params.exterior_color,
+            seating: params.seating,
+            price: params.price,
+            status: false,
+        };
+        var result = car_md.addNewCar(car);
+        if (!result) {
+            res.render("admin/adminblog/addnew", { data: { error: "Could not insert post data to db" } });
+        } else {
+            res.redirect("/admin/car-manager");
+        }
+    });
+});
+
 router.get("/adminfeedback", function (req, res) {
     var data = feedback_md.getAllFeedback();
     data.then(function (feedbacks) {
@@ -110,6 +158,7 @@ router.get("/adminfeedback", function (req, res) {
             feedbacks: feedbacks,
             error: false,
         };
+        console.log(dataRender);
         res.render("admin/adminfeedback", { data: dataRender });
     }).catch(function (err) {
         res.render("admin/adminfeedback", { data: { error: true } });

@@ -37,24 +37,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%if (data && data.posts){%>
-                                <%for (var i = 0; i < data.posts.length; i++){%>
+                            <%if (data && data.cars){%>
+                                <%for (var i = 0; i < data.cars.length; i++){%>
                                     <tr>
-                                        <td><%=data.posts[i].id%>%></td>
-                                        <td><%=data.posts[i].title%></td>
-                                        <td><%=data.posts[i].content%></td>
-                                        <td><%=data.posts[i].author%></td>
-                                        <td style="text-align: center"> 
-                                            <button class="btn glyphicon glyphicon-trash btn-danger post_delete"
-                                                    post_id = "<%=data.posts[i].id%>"></button>
-                                            <a href="/admin/blog-manager/edit/<%=data.posts[i].id%>" 
-                                                class="btn glyphicon glyphicon-pencil btn-primary"></a>
+                                        <td><%=data.cars[i].id%></td>
+                                        <td></td><img scr="/static/<%=data.cars[5].imageUrl%>" style="height: 20%"/></td>
+                                        <td><%=data.cars[i].name%></td>
+                                        <td><%=data.cars[i].brand%></td>
+                                        <td><%=data.cars[i].exterior_color%></td>
+                                        <td><%=data.cars[i].seating%></td>
+                                        <td><%=data.cars[i].price%></td>
+                                        <td style="text-align: center">
+                                            <%if (data.cars[i].status){%>
+                                                <a class="btn btn-success">Ready</a>
+                                            <%}else{%>
+                                                <a class="btn btn-danger">Busy</a>
+                                            <%}%>
                                         </td>
                                     </tr>
                                 <%}%>
                             <%}%>
                             
                         </tbody>
+                    <img src="/static/<%=data.cars[5].imageUrl%>" style="width: 20%">
                     </table>
                 </div>
                 <!-- /.table-responsive -->
@@ -63,6 +68,5 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/static/js/blogAdmin.js"></script>
 </body>
 </html>
