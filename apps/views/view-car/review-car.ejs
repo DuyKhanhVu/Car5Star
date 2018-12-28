@@ -8,7 +8,7 @@
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/review-car.css" rel="stylesheet">
 
-    <title>ID</title>
+    <title><%=data.car.name%></title>
 </head>
 
 <body>
@@ -22,25 +22,17 @@
                 <aside class="col-sm-5 border-right">
                     <article class="gallery-wrap">
                         <div class="img-big-wrap">
-                            <div> <img src="http://jetcar.vn/wp-content/uploads/2018/06/z983281917473_f7728664987a2e761d7aeb8967c5a0f9.jpg"></div>
+                            <div> <img src="/static/<%=data.car.imageUrl%>"></div>
                         </div> <!-- slider-product.// -->
-                        <div class="img-small-wrap">
-                            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-                            <div class="item-gallery"> <img src="https://img0.gaadicdn.com/images/car-images/265x110/Mahindra/Mahindra-XUV500-2018/6334/047.jpg">
-                            </div>
-                            <div class="item-gallery"> <img src="http://jetcar.vn/wp-content/uploads/2018/06/z983281917473_f7728664987a2e761d7aeb8967c5a0f9.jpg">
-                            </div>
-                            <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-                        </div> <!-- slider-nav.// -->
                     </article> <!-- gallery-wrap .end// -->
                 </aside>
                 <aside class="col-sm-7">
                     <article class="card-body p-5">
-                        <h3 class="title mb-3">Lexus Is 250c</h3>
+                        <h3 class="title mb-3"><%=data.car.name%></h3>
 
                         <p class="price-detail-wrap">
                             <span class="price h3 text-warning">
-                                <span class="num">3.000.000</span><span class="currency"> VNĐ</span>
+                                <span class="num"><%=data.car.price%></span><span class="currency"> VNĐ</span>
                             </span>
                             <span>/ngày</span>
                         </p> <!-- price-detail-wrap .// -->
@@ -58,11 +50,11 @@
                         </dl>
                         <dl class="param param-feature">
                             <dt>Màu sơn</dt>
-                            <dd>Trắng</dd>
+                            <dd><%=data.car.exterior_color%></dd>
                         </dl>
                         <dl class="param param-feature">
                             <dt>Kiểu dáng</dt>
-                            <dd>4 chỗ, mui trần</dd>
+                            <dd><%=data.car.seating%></dd>
                         </dl>
                         <a href="/view-car/order" class="btn btn-lg btn-primary text-uppercase">Liên hệ đặt xe</a>
                     </article> <!-- card-body.// -->

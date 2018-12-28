@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Car manager</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+
 </head>
+
 <body>
     <%include ../layoutadmin/header.ejs %>
-    
+
     <div class="container">
         <div class="row" style="margin-bottom : 5px;">
             <div class="col-md-12">
                 <a href="/admin/car-manager/add-car" class="btn btn-success pull-left">Add new car</a>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Danh sách xe
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Id</th>                                
-                                <th>Hình ảnh</th>                                                          
-                                <th>Tên xe</th>    
-                                <th>Hãng</th>
-                                <th>Màu xe</th>                                     
-                                <th>Số ghế</th>                                     
-                                <th>Giá thuê</th>                                     
-                                <th>Trạng thái</th>                                     
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%if (data && data.cars){%>
-                                <%for (var i = 0; i < data.cars.length; i++){%>
-                                    <tr>
-                                        <td><%=data.cars[i].id%></td>
-                                        <td></td><img scr="/static/<%=data.cars[5].imageUrl%>" style="height: 20%"/></td>
-                                        <td><%=data.cars[i].name%></td>
-                                        <td><%=data.cars[i].brand%></td>
-                                        <td><%=data.cars[i].exterior_color%></td>
-                                        <td><%=data.cars[i].seating%></td>
-                                        <td><%=data.cars[i].price%></td>
-                                        <td style="text-align: center">
-                                            <%if (data.cars[i].status){%>
-                                                <a class="btn btn-success">Ready</a>
-                                            <%}else{%>
-                                                <a class="btn btn-danger">Busy</a>
-                                            <%}%>
-                                        </td>
-                                    </tr>
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped ">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Tên xe</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Hãng</th>
+                                    <th>Màu xe</th>
+                                    <th>Số ghế</th>
+                                    <th>Giá thuê</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <%for (var i = 0; i < data.cars.length; i++){%>
+                                <tr>
+                                    <td><%=data.cars[i].id%></td>
+                                    <td><%=data.cars[i].name%></td>
+                                    <td><img src="/static/<%=data.cars[i].imageUrl%>" style="height: 100px" /> </td>
+                                    <td><%=data.cars[i].brand%></td>
+                                    <td><%=data.cars[i].exterior_color%></td>
+                                    <td><%=data.cars[i].seating%></td>
+                                    <td><%=data.cars[i].price%></td>
+                                    <td style="text-align: center">
+                                        <%if (data.cars[i].status){%>
+                                            <a class="btn btn-success">Done</a>
+                                        <%}else{%>
+                                            <a class="btn btn-warning">Wait</a>
+                                        <%}%>
+                                    </td>
+                                </tr>
                                 <%}%>
-                            <%}%>
-                            
-                        </tbody>
-                    <img src="/static/<%=data.cars[5].imageUrl%>" style="width: 20%">
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <!-- /.table-responsive -->
             </div>
-            <!-- /.panel-body -->
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
+
 </html>

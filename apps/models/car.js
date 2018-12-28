@@ -62,9 +62,26 @@ function getAllCars(){
     return defer.promise;
 }
 
+function getCarById(id){
+    if (id){
+        var defer = q.defer();
+        var query = conn.query('SELECT * FROM cars WHERE ?', {id: id}, function(err, result){
+            if (err){
+                console.log(err);
+                defer.reject(err);
+            }else{
+                defer.resolve(result);
+            }
+        });
+        return defer.promise;
+    } 
+    return false;
+}
+
 module.exports = {
     addOrder : addOrder,
     getAllOrders : getAllOrders,
     addNewCar: addNewCar,
     getAllCars : getAllCars,
+    getCarById : getCarById,
 }
