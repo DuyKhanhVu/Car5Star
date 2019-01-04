@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add new car</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <%include ../layoutadmin/header.ejs %>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Update Car
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form method="PUT" action="">
+                    <% if (data && data.error){%>
+                    <div id="addnew-alert" class="alert alert-danger">
+                        <%=data.error%>
+                    </div>
+                    <%}%>
+                    <input name="id" class="id" type="hidden" value= "<%=data.car.id%>"> 
+
+                    <div class="form-group">
+                        <label>Tên xe</label>
+                        <input name="name" class="form-control name" value="<%=data.car.name%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hãng</label>
+                        <input name="brand" class="form-control brand" value="<%=data.car.brand%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Màu xe</label>
+                        <input name="exterior_color" class="form-control exterior_color" value="<%=data.car.exterior_color%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số ghế</label>
+                        <input name="seating" class="form-control seating" value="<%=data.car.seating%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Giá thuê</label>
+                        <input name="price" class="form-control price" value="<%=data.car.price%>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <img src="/static/<%=data.car.imageUrl%>" style="width: 40%">
+                    </div>
+
+                    <input type="button" value="Update" class="btn btn-success car-update">
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script src="/static/js/carAdmin.js"></script>
+</body>
+
+</html>

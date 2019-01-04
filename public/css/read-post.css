@@ -1,3 +1,4 @@
+a {color:rgb(65, 65, 65);}
 header {
     margin-top: 0;
     background: url("http://lorempixel.com/1200/500/nature");
@@ -9,14 +10,13 @@ header {
 
 .background-bar {
     background: #dedede;
-    height: 90px;
     -webkit-box-shadow: inset 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    inset 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         inset 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
 }
 
 .main-body {
-    background: #ffffff;
+    background: rgba(180, 180, 180, 0.35);
     -webkit-box-shadow: 0px -4px 14px 0px rgba(50, 50, 50, 0.35);
     -moz-box-shadow:    0px -4px 14px 0px rgba(50, 50, 50, 0.35);
     box-shadow:         0px -4px 14px 0px rgba(50, 50, 50, 0.35);
@@ -32,27 +32,21 @@ header {
 .content-description {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    background: #fff;
-    height: 130px;
+    background: rgb(235, 235, 235);
     padding: 10px;
     -webkit-box-shadow: 0px 0px 12px 4px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    0px 0px 12px 4px rgba(50, 50, 50, 0.75);
     box-shadow:         0px 0px 12px 4px rgba(50, 50, 50, 0.75);
 }
 
-.author-avatar {
-    text-align:center;
-    margin-top: -70px;
+.author{
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 26;
 }
-.author-avatar img {
-    width: 100px;
-    border: 2px solid #e8e8e8;
-    border-radius: 15px;
-    -webkit-box-shadow: 0px 0px 12px 4px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    0px 0px 12px 4px rgba(50, 50, 50, 0.75);
-    box-shadow:         0px 0px 12px 4px rgba(50, 50, 50, 0.75);
-}
-.author-name {
+
+
+.title {
     text-align:center;
 }
 .blog-info {
@@ -60,9 +54,10 @@ header {
 }
 
 .content-body {
-    background: #fff;
+    background: rgb(235, 235, 235);
     min-height: 600px;
     padding: 20px 5px;
-    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20;
     color: #303030;
 }

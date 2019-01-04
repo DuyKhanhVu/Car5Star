@@ -45,8 +45,8 @@
                             </dd>
                         </dl>
                         <dl class="param param-feature">
-                            <dt>Dòng xe</dt>
-                            <dd> Lexus Is 250c</dd>
+                            <dt>Hãng</dt>
+                            <dd><%=data.car.brand%></dd>
                         </dl>
                         <dl class="param param-feature">
                             <dt>Màu sơn</dt>
@@ -54,9 +54,9 @@
                         </dl>
                         <dl class="param param-feature">
                             <dt>Kiểu dáng</dt>
-                            <dd><%=data.car.seating%></dd>
+                            <dd><%=data.car.seating%> chỗ</dd>
                         </dl>
-                        <a href="/view-car/order" class="btn btn-lg btn-primary text-uppercase">Liên hệ đặt xe</a>
+                        <a href="/view-car/order/<%=data.car.id%>" class="btn btn-lg btn-primary text-uppercase">Liên hệ đặt xe</a>
                     </article> <!-- card-body.// -->
                 </aside> <!-- col.// -->
             </div> <!-- row.// -->

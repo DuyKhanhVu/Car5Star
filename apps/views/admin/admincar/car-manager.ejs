@@ -33,6 +33,7 @@
                                     <th>Số ghế</th>
                                     <th>Giá thuê</th>
                                     <th>Trạng thái</th>
+                                    <th>Tuỳ chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,10 +48,16 @@
                                     <td><%=data.cars[i].price%></td>
                                     <td style="text-align: center">
                                         <%if (data.cars[i].status){%>
-                                            <a class="btn btn-success">Done</a>
+                                            <a class="btn btn-success">Ready</a>
                                         <%}else{%>
-                                            <a class="btn btn-warning">Wait</a>
+                                            <a class="btn btn-warning">Busy</a>
                                         <%}%>
+                                    </td>
+                                    <td style="text-align: center"> 
+                                        <button class="btn glyphicon glyphicon-trash btn-danger car_delete"
+                                                car_id = "<%=data.cars[i].id%>"></button>
+                                        <a href="/admin/car-manager/update-car/<%=data.cars[i].id%>" 
+                                            class="btn glyphicon glyphicon-pencil btn-primary"></a>
                                     </td>
                                 </tr>
                                 <%}%>
@@ -62,6 +69,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/carAdmin.js"></script>
 </body>
 
 </html>

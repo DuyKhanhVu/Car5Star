@@ -1,48 +1,50 @@
 <!doctype <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/blog.css" rel="stylesheet">
-    
+
     <title>Blog</title>
 </head>
+
 <body>
     <%include ../layout/header%>
     <section id="blog">
         <div class="container">
             <h2 class="text-center">Blog Chia sẻ</h2>
-            <h5 class="text-center">Nơi chia sẻ các cung đường hấp dẫn của các tài xế.</h3>            
-                    
-            <div class="row">                           
+            <h5 class="text-center">Nơi chia sẻ các cung đường hấp dẫn của các tài xế.</h3>
+                <div class="row">
                     <!-- Carousel items -->
                     <div class="carousel-inner">
-                        
-                    <div class="item active">
-                        <div class="row">
-                            <%for (var i = 1; i <= 8; i++){%>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                <div class="card text-center">
-                                <img class="card-img-top" src="https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" width="100%">
-                                <div class="card-block">
-                                    <h4 class="card-title">Nha Trang</h4>
-                                    <p class="card-text">Thành phố Nha Trang là một trung tâm du lịch sôi động với nhiều thắng cảnh nổi tiếng, điều kiện thiên nhiên ưu đãi cả về vị trí, cảnh quan, khí hậu. </p>
-                                    <a class="btn btn-default" href="/blog/read-post/<%=i%>">Read More</a>
+                        <div class="item active">
+                            <div class="row">
+                                <%for (var i = 0; i < data.posts.length; i++){%>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="card text-center">
+                                        <img class="card-img-top" src="https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?h=350&auto=compress&cs=tinysrgb"
+                                            alt="" width="100%">
+                                        <div class="card-block">
+                                            <te class="card-title">
+                                                <%=data.posts[i].title%>
+                                            </h4>
+                                            <p class="card-text"><%=data.posts[i].abstract%></p>
+                                            <a class="btn btn-default" href="/blog/read-post/<%=data.posts[i].id%>">
+                                                Read More</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
-                            <%}%>
-                        </div> <!-- row -->
-                    </div> <!-- item -->                               
+                                <%}%>
+                            </div> <!-- row -->
+                        </div> <!-- item -->
+                    </div>
                 </div>
-            </div>                
         </div>
     </section>
     <%include ../layout/footer%>
-    <script src="static/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="static/js/popper.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
 </body>
+
 </html>

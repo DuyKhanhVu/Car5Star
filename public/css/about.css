@@ -1,4 +1,6 @@
 /* PRICE TABLE */
+a {color:rgb(65, 65, 65);}
+
 body { background: #ffffff}
 .row-flex {
     display: flex;

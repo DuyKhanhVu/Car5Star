@@ -34,7 +34,6 @@ function addNewPost(post){
 }
 
 function getPostById(id){
-    
     var defer = q.defer();
     var query = conn.query('SELECT * FROM blog WHERE ?',{id: id} , function(err, posts){
         if (err){
@@ -48,7 +47,6 @@ function getPostById(id){
 }
 
 function updatePost(params){
-    console.log("updatePost");
     if (params){
         var defer = q.defer();
         var query = conn.query('UPDATE blog SET title = ?, content = ?, author = ? WHERE id = ?',

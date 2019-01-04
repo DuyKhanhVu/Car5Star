@@ -1,6 +1,7 @@
-body {background: rgb(255, 254, 254)}
+body {background: rgb(255, 255, 255)}
 .area-padding {padding:60px 0px 60px 0px;}
 a {color:rgb(65, 65, 65);}
+a.btn{border: white}
 a:hover {color:#dd0000;}
 .brand-list-area {background:#000; padding:20px 0px 20px 0px;}
 .brand-list {padding: 0;list-style: none; margin: 0;}
@@ -16,6 +17,7 @@ img {width:100%;}
 /**************** Banner Slider Carousel **************/
 .carousel-inner img {width: 100%;}
 .carousel-caption {color:#000;top:110px; bottom: auto; text-align:left;}
+
 .carousel-caption h1 { color:#dd0000;}
 /************ Services **************/
 .most-car-box:hover {box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}

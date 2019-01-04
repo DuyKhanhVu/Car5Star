@@ -4,34 +4,39 @@ var helper = require("../helpers/helper");
 
 var user_md = require("../models/user");
 
-router.get("/", function(req, res){
-    res.render("login", {data:{}});
+router.get("/", function (req, res) {
+    res.render("login", { data: {} });
 });
 
-router.post("/", function(req, res){
+router.post("/", function (req, res) {
     var params = req.body;
-    if (params.username.trim().length == 0){
-        res.render("login", {data: {error:"Please enter an username"}});
-    }else{
+    if (params.username.trim().length == 0) {
+        res.render("login", { data: { error: "Please enter an username" } });
+    } else {
         var data = user_md.getUserByUsername(params.username);
 
-        if (data){
+        if (data) {
             data
-                .then(function(users){
+                .then(function (users) {
                     var user = users[0];
                     var status = helper.compare_password(params.password, user.password);
-                    if (status){
-                        req.session.user = user;
-                        res.redirect("/")
+                    if (status) {
+                        if (!user.isAdmin) {
+                            req.session.user = user;
+                            res.redirect("/")
+                        } else {
+                            req.session.user = user;
+                            res.redirect("/admin")
+                        }
                     } else {
-                        res.render("login", {data: {error:"Login wrong, please try again"}});
+                        res.render("login", { data: { error: "Login wrong, please try again" } });
                     }
                 })
-                .catch(function(error){
+                .catch(function (error) {
                     console.log(error);
                 });
-        }else{
-            res.render("login", {data: {error:"User not exists"}});
+        } else {
+            res.render("login", { data: { error: "User not exists" } });
         }
     }
 })

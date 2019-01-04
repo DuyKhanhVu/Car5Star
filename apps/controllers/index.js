@@ -1,4 +1,5 @@
 var express = require("express");
+var car_md = require("../models/car")
 
 var router = express.Router();
 
@@ -11,7 +12,17 @@ router.use("/login", require(__dirname + "/login"));
 router.use("/signUp", require(__dirname + "/signUp"));
 router.use("/feedback", require(__dirname + "/feedback"));
 router.get("/", function(req, res){
-    res.render("home", {data:{}});
+    var data = car_md.getAllCars();
+    data.then(function (cars) {
+        var dataRender = {
+            cars: cars,
+            error: false,
+        };
+
+        res.render("home", { data: dataRender });
+    }).catch(function (err) {
+        res.render("home", { data: { error: true } });
+    });
 });
 
 router.get("/chat", function(req,res){

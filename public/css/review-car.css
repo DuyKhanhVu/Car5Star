@@ -1,3 +1,4 @@
+a {color:rgb(65, 65, 65);}
 .gallery-wrap .img-big-wrap img {
     height: 400px;
     width: 450px;
@@ -24,4 +25,8 @@
     object-fit: cover;
     border-radius: 4px;
     cursor: zoom-in;
+}
+
+.img-rounded{
+    padding: 10px;
 }
