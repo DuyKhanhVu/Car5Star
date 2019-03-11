@@ -16,7 +16,7 @@
     <div class="container">
         <div class="panel-body">
             <ul id="conversation" class="chat">
-                
+
             </ul>
         </div>
         <div class="panel-footer">
@@ -36,7 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript">
         //var socket = io.connect("http://125.234.14.225:8088");
-        var socket = io.connect("http://localhost:3000/");
+        var socket = io.connect("http://192.168.137.1:3000/");
         socket.on("connect", function () {
             console.log("user connecting server");
         });
@@ -46,7 +46,7 @@
         });
 
         $("#btn_send").click(function (e) {
-            var  message = $("#message").val();
+            var message = $("#message").val();
 
             $("#message").val("");
 
@@ -60,4 +60,5 @@
         });
     </script>
 </body>
+
 </html>

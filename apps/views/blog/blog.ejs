@@ -25,13 +25,13 @@
                                 <%for (var i = 0; i < data.posts.length; i++){%>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                     <div class="card text-center">
-                                        <img class="card-img-top" src="https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?h=350&auto=compress&cs=tinysrgb"
+                                        <img class="card-img-top" src="http://lorempixel.com/1200/500/nature"
                                             alt="" width="100%">
                                         <div class="card-block">
                                             <te class="card-title">
                                                 <%=data.posts[i].title%>
                                             </h4>
-                                            <p class="card-text"><%=data.posts[i].abstract%></p>
+                                            <p class="card-text"><%=data.posts[i].summary%></p>
                                             <a class="btn btn-default" href="/blog/read-post/<%=data.posts[i].id%>">
                                                 Read More</a>
                                         </div>

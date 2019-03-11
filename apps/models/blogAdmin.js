@@ -49,8 +49,8 @@ function getPostById(id){
 function updatePost(params){
     if (params){
         var defer = q.defer();
-        var query = conn.query('UPDATE blog SET title = ?, content = ?, author = ? WHERE id = ?',
-                    [params.title, params.content, params.author, params.id] , 
+        var query = conn.query('UPDATE blog SET title = ?, summary = ?, content = ?, author = ? WHERE id = ?',
+                    [params.title, params.summary, params.content, params.author, params.id] , 
                     function(err, result){
                         if (err){
                             console.log(err);

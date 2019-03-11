@@ -9,7 +9,9 @@ function Post() {
                 exterior_color: $(".exterior_color").val(),
                 seating: $(".seating").val(),
                 price: $(".price").val(),
+                description: $(".description").val(),
             };
+            alert(JSON.stringify(params));
             var base_url = location.protocol + "//" + document.domain + ":" + location.port;
             $.ajax({
                 url: base_url + "/admin/car-manager/update-car",

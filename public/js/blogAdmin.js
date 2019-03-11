@@ -5,7 +5,8 @@ function Post() {
             var params = {
                 id: $(".id").val(),
                 title: $(".title").val(),
-                content: tinymce.get("content").getContent(),
+                summary: $(".summary").val(),
+                content: $(".content").val(),
                 author: $(".author").val()
             };
             var base_url = location.protocol + "//" + document.domain + ":" + location.port;

@@ -26,8 +26,8 @@
             <img src="https://images.cardekho.com/images/featuredcarimages/Honda-WR-V-19/wrv-0.jpg">
             <div class="carousel-caption">
                 <div class="col-md-7">
-                    <h1 class="pb-2"><strong>The WordPress Theme for Growth Hackers </strong> </h1>
-                    <h4>The right look and feel to promote any product, service or online course.</h4>
+                    <h1 class="pb-2"><strong>Chuyên nghiệp</strong> </h1>
+                    <h4>Sự chuyên nghiệp của chúng tôi sẽ đem lại sự hài lòng cho bạn.</h4>
                     <a href="view-car" type="button" class="btn btn-dark mt-4">Xem thêm</a>
                 </div>
             </div>
@@ -36,8 +36,8 @@
             <img src="https://images.cardekho.com/images/featuredcarimages/Maruti-Swift-17/Swift-new-0.jpg" alt="Chicago">
             <div class="carousel-caption">
                 <div class="col-md-7">
-                    <h1 class="pb-2"><strong>The WordPress Theme for Growth Hackers </strong> </h1>
-                    <h4>The right look and feel to promote any product, service or online course.</h4>
+                    <h1 class="pb-2"><strong>Chất lượng</strong> </h1>
+                    <h4>Chất lượng sản phẩm chinh phục mọi khách hàng khó tính nhất.</h4>
                     <a href="view-car" type="button" class="btn btn-dark mt-4">Xem thêm</a>
                 </div>
             </div>
@@ -46,8 +46,8 @@
             <img src="https://images.cardekho.com/images/featuredcarimages/Honda-WR-V-19/wrv-0.jpg" alt="New York">
             <div class="carousel-caption">
                 <div class="col-md-7">
-                    <h1 class="pb-2"><strong>The WordPress Theme for Growth Hackers </strong> </h1>
-                    <h4>The right look and feel to promote any product, service or online course.</h4>
+                    <h1 class="pb-2"><strong>Ưu đãi</strong> </h1>
+                    <h4>Những ưu đãi hấp dẫn cho khách hàng thường xuyên sử dụng Car5Star.</h4>
                     <a href="/view-car" type="button" class="btn btn-dark mt-4">Xem thêm</a>
                 </div>
             </div>
@@ -66,12 +66,12 @@
         <div class="container">
             <div class="row pb-4 text-center">
                 <div class="col-md-12">
-                    <h2>Upcoming & Latest cars</h2>
-                    <p> Pre-booked lessons, on-call lessons are Not refundable unless cancelled more than 24 hours.</p>
+                    <h2>Xe mới & Xu hướng</h2>
+                    <p> Những mấu xe mới và những mẫu xe được ưa chuộng nhất tại Car5Star.</p>
                 </div>
             </div>
             <div class="row text-center">
-                <%for (var i = 0; i < data.cars.length; i++){%>
+                <%for (var i = 0; i < 4; i++){%>
                 <div class="col-md-3 box border py-4">
                     <div class="box-carimage">
                         <img src="/static/<%=data.cars[i].imageUrl%>" style="height: 180px">
@@ -83,16 +83,15 @@
                     </div>
                     <div class="box-carprice">
                         <h6><i class="fa fa-inr"></i>
-                            <%=data.cars[i].price%>/ngày</h6>
+                            <%=data.cars[i].price / 1000000%> triệu / ngày</h6>
                     </div>
-                    <a href="/view-car/review-car/<%=data.cars[i].id%>" type="button" class="btn btn-outline-danger">Check
-                        Price</a>
+                    <a href="/view-car/review-car/<%=data.cars[i].id%>" type="button" class="btn btn-outline-danger">Chi tiết</a>
                 </div>
                 <%}%>
             </div>
             <div class="row text-center pt-4">
                 <div class="col-md-12">
-                    <a href="view-car" type="button" class="btn btn-danger">View All Upcoming Cars</a>
+                    <a href="view-car" type="button" class="btn btn-danger">Tất cả sản phẩm</a>
                 </div>
             </div>
         </div>
@@ -102,8 +101,8 @@
         <div class="container">
             <div class="row pb-4 text-center">
                 <div class="col-md-12">
-                    <h2>Search car by Brand</h2>
-                    <p> Pre-booked lessons, on-call lessons are Not refundable unless cancelled more than 24 hours.</p>
+                    <h2>Tìm xe theo hãng</h2>
+                    <p>Car5Star cung cấp đầy đủ đầy đủ các hãng xe đáp ứng mọi nhu cầu khách hàng.</p>
                 </div>
             </div>
 
@@ -181,7 +180,7 @@
             </div>
             <div class="row text-center pt-4">
                 <div class="col-md-12">
-                    <a href="view-car" type="button" class="btn btn-danger">View All Upcoming Cars</a>
+                    <a href="view-car" type="button" class="btn btn-danger">Tất cả sản phẩm</a>
                 </div>
             </div>
         </div>
@@ -195,8 +194,8 @@
                             <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/tablet.png">
                         </div>
                         <div class="col-md-9">
-                            <h5>Deals & Coupons</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur</p>
+                            <h5>Ưu đãi & giảm giá</h5>
+                            <p>Khách hàng của Car5Star sẽ được hưởng ưu đãi khi thường xuyên sử dụng hệ thống.</p>
                         </div>
                     </div>
                 </div>
@@ -206,8 +205,8 @@
                             <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/online-shop-6.png">
                         </div>
                         <div class="col-md-9">
-                            <h5>Find Best Offers</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur</p>
+                            <h5>Chuyên nghiệp</h5>
+                            <p>Khách hàng có thể dễ dàng đặt xe qua hệ thống hoặc điện thoại. Yêu cầu của khách hàng sẽ được xử lý nhanh nhất có thể.</p>
                         </div>
                     </div>
                 </div>
@@ -217,8 +216,8 @@
                             <img src="http://klbtheme.com/froday/wp-content/uploads/2018/02/money.png">
                         </div>
                         <div class="col-md-9">
-                            <h5>Save Money</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aspernatur</p>
+                            <h5>Tiết kiệm chi phí</h5>
+                            <p>Car5Star đảm bảo mức phí cạnh tranh đem lại lợi ích cho khách hàng.</p>
                         </div>
                     </div>
                 </div>
@@ -226,18 +225,7 @@
         </div>
     </div>
 
-    <div class="cta-sektion  border py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-9 col-xs-12">
-                    <h3><span class="glyphicon glyphicon-cog "></span> <b>Car for sale?</b> Explore Cars like a pro.</h3>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 ">
-                    <button type="button" class="btn bg-danger twhite">Start Right Now</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <% include layout/footer %>
     <script src="static/js/jquery-3.3.1.slim.min.js"></script>
     <script src="static/js/popper.min.js"></script>

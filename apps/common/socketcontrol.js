@@ -31,5 +31,10 @@ module.exports = function(io){
             };
             socket.broadcast.emit("update_message", data);
         });
+		
+		socket.on("message", function(message){
+			console.log(message);
+			socket.broadcast.emit("message", message);
+		});
     });
 }

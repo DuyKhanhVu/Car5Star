@@ -32,16 +32,14 @@
 
                         <p class="price-detail-wrap">
                             <span class="price h3 text-warning">
-                                <span class="num"><%=data.car.price%></span><span class="currency"> VNĐ</span>
+                                <span class="num"><%=data.car.price / 1000000%></span><span class="currency"> Triệu</span>
                             </span>
-                            <span>/ngày</span>
+                            <span>/ ngày</span>
                         </p> <!-- price-detail-wrap .// -->
                         <dl class="item-property">
                             <dt>Mô tả</dt>
                             <dd>
-                                <p>Here goes description consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco </p>
+                                <p><%=data.car.description%></p>
                             </dd>
                         </dl>
                         <dl class="param param-feature">
@@ -66,9 +64,6 @@
     </div>
     <!--container.//-->
     <%include ../layout/footer%>
-    <script src="static/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="static/js/popper.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
 </body>
 
 </html>

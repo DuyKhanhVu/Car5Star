@@ -81,8 +81,8 @@ function getCarById(id) {
 function updateCar(params) {
     if (params) {
         var defer = q.defer();
-        var query = conn.query('UPDATE cars SET name = ?, brand = ?, exterior_color = ?, seating = ?, price = ? WHERE id = ?',
-            [params.name, params.brand, params.exterior_color, params.seating, params.price, params.id],
+        var query = conn.query('UPDATE cars SET name = ?, brand = ?, exterior_color = ?, seating = ?, price = ?, description = ? WHERE id = ?',
+            [params.name, params.brand, params.exterior_color, params.seating, params.price, params.description, params.id],
             function (err, result) {
                 if (err) {
                     console.log(err);
@@ -112,8 +112,12 @@ function deleteCar(id) {
 
 function searchCar(car) {
     if (car) {
+        const min = car.price == '1' ? 3000000 : (car.price == '2' ? 5000000 : 10000000);
+        const max = car.price == '1' ? 5000000 : (car.price == '2' ? 10000000 : 1000000000);
+
         var defer = q.defer();
-        var query = conn.query('SELECT * FROM cars WHERE ?', { brand: car.brand }, function (err, result) {
+        var query = conn.query('SELECT * FROM cars WHERE brand = ? and seating = ? and price >= ? and price <= ?', 
+            [car.brand, car.seating, min, max], function (err, result) {
             if (err) {
                 console.log(err);
                 defer.reject(err);

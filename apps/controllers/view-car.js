@@ -38,12 +38,11 @@ router.get("/review-car/:id", function (req, res) {
 
 router.post("/", function (req, res) {
     var params = req.body;
-    console.log(params);
-    
+    console.log(req.body);
     car = {
         seating: params.seating,
-        brand: params.brand,
-        price: params.content
+        brand: params.brand, 
+        price: params.price,
     };
     var data = car_md.searchCar(car);
     if (data) {
@@ -83,6 +82,7 @@ router.get("/order/:id", function (req, res) {
 
 router.post("/order", function(req, res){
     var order = req.body;
+    console.log(req.body.id);
     if (order.email.trim().length == 0 && order.phone.trim().length == 0) {
         res.render("order", { data: { error: "Please enter an email and phone" } });
     }
@@ -99,7 +99,7 @@ router.post("/order", function(req, res){
         create_at: now,
         status: false,
     };
-
+    console.log(order);
     var result = car_md.addOrder(order);
     if (!result) {
         res.render("order", { data: { error: "Could not send order" } });

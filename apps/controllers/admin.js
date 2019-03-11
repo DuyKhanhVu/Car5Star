@@ -69,6 +69,7 @@ router.post("/blog-manager/addnew", function (req, res) {
     post = {
         author: params.author,
         title: params.title,
+        summary: params.summary,
         content: params.content
     };
     var result = blog_md.addNewPost(post);
@@ -157,6 +158,7 @@ router.post("/car-manager/add-car", function (req, res) {
             exterior_color: params.exterior_color,
             seating: params.seating,
             price: params.price,
+            description: params.description,
             status: false,
         };
         var result = car_md.addNewCar(car);
@@ -190,6 +192,7 @@ router.get("/car-manager/update-car/:id", function (req, res) {
 
 router.put("/car-manager/update-car", function (req, res) {
     var params = req.body;
+    console.log(params);
     data = car_md.updateCar(params);
 
     if (!data) {

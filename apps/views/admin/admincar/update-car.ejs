@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Add new car</title>
+    <title>Update Car</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -45,6 +45,10 @@
                     <div class="form-group">
                         <label>Giá thuê</label>
                         <input name="price" class="form-control price" value="<%=data.car.price%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả</label>
+                        <input name="description" class="form-control description" value="<%=data.car.description%>" required>
                     </div>
 
                     <div class="form-group">
